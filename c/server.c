@@ -14,6 +14,8 @@
 #include    <netdb.h>
 #include    <sys/wait.h>
 
+const int p = 12345;
+
 void ChildEnd(int sig)
 {
 	int     pid;
@@ -53,7 +55,7 @@ int main()
 	memset((char *)&my,0,sizeof(my));
 
     my.sin_family=AF_INET;
-    my.sin_port=htons(12345);
+    my.sin_port=htons(p);
     fprintf(stderr,"port=%d\n",(my.sin_port));
 
     /* ソケットにアドレスを指定 */
